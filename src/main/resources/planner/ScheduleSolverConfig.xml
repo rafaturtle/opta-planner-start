@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+
+<scanAnnotatedClasses/>
+
+	<scoreDirectorFactory>
+		<scoreDrl>planner/SchedulingScoreRules.drl</scoreDrl>
+	</scoreDirectorFactory>
+
+ 
+	<termination>
+		<minutesSpentLimit>1</minutesSpentLimit>
+	</termination>
+</solver>

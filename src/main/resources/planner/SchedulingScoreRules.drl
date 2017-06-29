@@ -1,0 +1,19 @@
+package au.com.nukon.planner;
+    dialect "java"
+import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScoreHolder;
+import au.com.nukon.planner.model.Product;
+
+global HardMediumSoftScoreHolder  scoreHolder;
+// ############################################################################
+// Hard constraints
+// ############################################################################
+
+rule "Demand should be fulfilled"
+  when 
+     Demand(period == null,$demandQuantity:quantity)
+     Parameterization($constraintType:Demandshouldbefulfilled)
+  then
+     Parameterization.addConstraint(scoreHolder,kcontext,-$demandQuantity,$constraintType);   	
+  end
+
+end
